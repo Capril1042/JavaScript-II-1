@@ -106,3 +106,15 @@ console.log(companiesRepresented.sort());
 
 // Problem 3
 // companies represented with total donation per company.
+let companiesWithDonationSum = new Map();
+
+runners.forEach(runner=> {
+    if ( companiesWithDonationSum.has(runner.company_name)) {
+      let newDonationTotal =  runner.donation + companiesWithDonationSum.get(runner.company_name);
+        companiesWithDonationSum.set(runner.company_name, newDonationTotal);
+    }
+    else {
+        companiesWithDonationSum.set(runner.company_name, runner.donation);
+    }
+} );
+console.log(companiesWithDonationSum);
